@@ -1,25 +1,3 @@
-/* Comp 352-X, Assignment 2
- * Name: Shiyuan Zhang
- * ID: 40228185
- */
-/*
- * This program is using the basic structure provided on the slides of the arithmetic calculator with using two different stacks. 
- * It can read lines from a text file called "questions.txt" and then calculate the result(it could be number or boolean) 
- * at the end, it will output the input line and the result in another text file "results.txt".
- * I use FileIO to read and write files.
- * I create an array-based stack called ArrayStack in generic data type, it has dynamic size based on the linearly incremental strategy. 
- * I set the initial size of the stack 5 and each time when the stack is full, it will create a new stack with the size increment 
- * by 5 and copy the elements from the old stack into the new one.
- * To make the parenthesis works, I use recursion in EvalExp(), EvalExp() will return a String array where the first index stored the 
- * calculation result, and the second index stores the index number of the input+1(we call it "count"). 
- * Every time the code detects an open parenthesis, it will take the substring of the rest of the input line, start from one character after the 
- * open parenthesis and then call the EvalExp() using the substring. When the code meets the close parenthesis, it will break the 
- * recursion/loop (the elements before the close parenthesis already calculated and push into the value stack). When it breaks, 
- * it returns to the original input line.
- * Add the returned count number to the i of the original line, then when we continue calculate the original input line it could use the return value
- * (the first index) directly and skip the whole parenthesis part.
- * 
- */
 import java.lang.*;
 import java.io.*;
 import java.util.*;
